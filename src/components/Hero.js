@@ -76,7 +76,7 @@ function Hero() {
             </a>
           </div>
           <a
-            href="https://googleusercontent.com/file_content/2"
+            href="https://drive.google.com/file/d/191WY1TI3HVYtD0YQohZhUKyKiCUJQYmS/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
             className="btn-gradient text-white font-semibold px-5 py-2 rounded-full inline-flex items-center gap-2"
