@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Churiwal | Software Developer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins & Exo 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Exo+2:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+        }
+        .font-hero {
+            font-family: 'Exo 2', sans-serif;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .glass-effect {
+            background: rgba(16, 16, 32, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .header-scrolled {
+            background-color: #0a0a1a; /* Solid background on scroll */
+            backdrop-filter: none; /* Remove blur on scroll */
+            -webkit-backdrop-filter: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .btn-gradient {
+            background-image: linear-gradient(to right, #4f46e5, #c026d3);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(192, 38, 211, 0.2);
+        }
+        .section-title {
+            background: linear-gradient(to right, #818cf8, #e879f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+        }
+        .profile-img {
+            filter: grayscale(80%);
+            transition: filter 0.4s ease;
+        }
+        .profile-img-container:hover .profile-img {
+            filter: grayscale(0%);
+        }
+        .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.25);
+            color: #c026d3; /* Match gradient color */
+        }
+        .project-card, .achievement-card, .experience-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover, .achievement-card:hover, .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.3); /* Match gradient color */
+        }
+        .project-image-container {
+            cursor: pointer;
+        }
+        .project-image {
+            transition: transform 0.4s ease;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Particle.js Background -->
+    <div id="particles-js"></div>
+
+    <!-- Header & Navigation -->
+    <header class="glass-effect fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="photo.jpg" alt="Rahul Churiwal Logo" class="h-10 w-10 rounded-full object-cover">
+                <span class="text-xl font-bold text-white">Rahul</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="hover:text-indigo-400 transition-colors duration-300">About</a>
+                <a href="#experience" class="hover:text-indigo-400 transition-colors duration-300">Experience</a>
+                <a href="#skills" class="hover:text-indigo-400 transition-colors duration-300">Skills</a>
+                <a href="#projects" class="hover:text-indigo-400 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="btn-gradient text-white font-semibold px-5 py-2 rounded-full">Contact Me</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 hover:text-indigo-400">About</a>
+            <a href="#experience" class="block py-2 hover:text-indigo-400">Experience</a>
+            <a href="#skills" class="block py-2 hover:text-indigo-400">Skills</a>
+            <a href="#projects" class="block py-2 hover:text-indigo-400">Projects</a>
+            <a href="#contact" class="block mt-2 text-center btn-gradient text-white font-semibold px-5 py-2 rounded-full">Contact Me</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 relative z-10">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center pt-24 md:pt-0">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="font-hero text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                    Hi, I'm Rahul Churiwal
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mt-2">
+                    <span class="section-title" id="typed-text"></span>
+                </h2>
+                <p class="mt-6 text-lg text-gray-300 max-w-xl mx-auto md:mx-0">
+                    A passionate Computer Science student from West Bengal, India, with a focus on backend development, web applications, and machine learning.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center md:justify-start items-center gap-6">
+                    <div class="flex space-x-6">
+                        <a href="https://www.linkedin.com/in/rahul-churiwal-a54980276" target="_blank" class="text-gray-300 social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="https://github.com/RahulChuriwal" target="_blank" class="text-gray-300 social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg></a>
+                        <a href="https://leetcode.com/u/rahulchuriwal7/" target="_blank" class="text-gray-300 social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16.5V9.5"/><path d="M15 12.5H9"/><path d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Z"/></svg></a>
+                    </div>
+                    <a href="https://googleusercontent.com/file_content/2" target="_blank" class="btn-gradient text-white font-semibold px-5 py-2 rounded-full inline-flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden p-2 bg-gradient-to-br from-indigo-500 to-fuchsia-500 profile-img-container">
+                     <img src="photo.jpg" alt="Rahul Churiwal" class="w-full h-full object-cover rounded-full profile-img" onerror="this.onerror=null;this.src='https://placehold.co/320x320/0a0a1a/e0e0e0?text=Rahul';">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">About Me</h2>
+            <div class="max-w-3xl mx-auto glass-effect p-8 rounded-2xl">
+                <p class="text-lg text-center leading-relaxed text-gray-300">
+                    I am a dedicated and results-oriented Computer Science and Engineering student at KIIT University. My passion lies in building robust and scalable applications. I have hands-on experience in full-stack web development with the MERN stack and have delved into the exciting world of Artificial Intelligence and Machine Learning. I thrive in collaborative environments, enjoy solving complex problems, and am always eager to learn new technologies to create innovative solutions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-20">
+             <h2 class="text-4xl font-bold text-center mb-12 section-title">Achievements</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="https://leetcode.com/u/rahulchuriwal7/" target="_blank" class="block glass-effect p-6 rounded-2xl achievement-card">
+                    <div class="flex items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M10 20.5c.5-2.5.8-5 1-7.5.2-2.5.3-5 .4-7.5-1.5 2-3 4-4.5 6-1.5 2-3 4-4.5 6"/><path d="M14 20.5c-.5-2.5-.8-5-1-7.5-.2-2.5-.3-5-.4-7.5L14 9.5l1.5 2 1.5 2 1.5 2 1.5 2-7.5 3z"/></svg>
+                        <div>
+                            <h3 class="font-semibold text-white">550+ Problems Solved</h3>
+                            <p class="text-sm text-gray-400">LeetCode</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="glass-effect p-6 rounded-2xl achievement-card flex items-center gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <div>
+                        <h3 class="font-semibold text-white">Software Engineering Intern</h3>
+                        <p class="text-sm text-gray-400">CRM Masters Info Tech LLP</p>
+                    </div>
+                </div>
+                 <div class="glass-effect p-6 rounded-2xl achievement-card flex items-center gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    <div>
+                        <h3 class="font-semibold text-white">5+ Projects Completed</h3>
+                        <p class="text-sm text-gray-400">Full-Stack & Machine Learning</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Experience</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-effect p-8 rounded-2xl experience-card">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4">
+                        <h3 class="text-2xl font-bold text-white">Software Engineering Intern</h3>
+                        <p class="text-indigo-300 font-semibold mt-2 sm:mt-0">May 2025 - June 2025</p>
+                    </div>
+                    <p class="text-lg font-semibold text-gray-300 mb-4">CRM Masters Info Tech LLP | Gurugram, India</p>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Completed a live project as part of a 2-month software engineering internship.</li>
+                        <li>Demonstrated strong coding, problem-solving, and teamwork skills while collaborating with senior developers.</li>
+                        <li>Gained hands-on experience in a professional development environment, contributing to real-world applications.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">My Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Skill Cards -->
+                <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="C++ Icon"/>
+                    <p class="mt-4 font-semibold text-white">C++</p>
+                </div>
+                <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="Python Icon"/>
+                    <p class="mt-4 font-semibold text-white">Python</p>
+                </div>
+                 <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="JavaScript Icon"/>
+                    <p class="mt-4 font-semibold text-white">JavaScript</p>
+                </div>
+                <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="React Icon"/>
+                    <p class="mt-4 font-semibold text-white">React.js</p>
+                </div>
+                 <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="Node.js Icon"/>
+                    <p class="mt-4 font-semibold text-white">Node.js</p>
+                </div>
+                <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="MongoDB Icon"/>
+                    <p class="mt-4 font-semibold text-white">MongoDB</p>
+                </div>
+                 <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="MySQL Icon"/>
+                    <p class="mt-4 font-semibold text-white">MySQL</p>
+                </div>
+                <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="Tailwind CSS Icon"/>
+                    <p class="mt-4 font-semibold text-white">Tailwind CSS</p>
+                </div>
+                <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="TensorFlow Icon"/>
+                    <p class="mt-4 font-semibold text-white">TensorFlow</p>
+                </div>
+                 <div class="skill-card glass-effect p-6 rounded-2xl text-center flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="h-16 w-16 skill-icon transition-transform duration-300" alt="Git Icon"/>
+                    <p class="mt-4 font-semibold text-white">Git</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">My Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="glass-effect rounded-2xl overflow-hidden group project-card flex flex-col">
+                    <a href="https://building-blocks-ai-course-generator-delta.vercel.app/" target="_blank" class="block overflow-hidden h-48 project-image-container">
+                        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=800&auto=format&fit=crop" 
+                             alt="AI Course Platform" 
+                             class="w-full h-full object-cover project-image"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/e0e0e0?text=AI+Learning';">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Building Blocks (AI Course Platform)</h3>
+                        <p class="text-gray-300 mb-4 text-sm flex-grow">An AI-powered learning platform using React/Next.js and Google Gemini API to automate course generation and content delivery.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-indigo-500/20 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full">React</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full">Next.js</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full">Gemini API</span>
+                        </div>
+                        <div class="flex space-x-4 mt-auto">
+                            <a href="https://github.com/RahulChuriwal/BuildingBlocks-AI-Course-Generator-platform" target="_blank" class="border border-gray-500 text-gray-300 font-semibold px-5 py-2 rounded-full hover:bg-gray-700 hover:border-gray-700 transition-colors text-sm w-full text-center">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="glass-effect rounded-2xl overflow-hidden group project-card flex flex-col">
+                    <a href="https://github.com/RahulChuriwal/Netflix-GPT" target="_blank" class="block overflow-hidden h-48 project-image-container">
+                        <img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?q=80&w=800&auto=format&fit=crop" 
+                             alt="Movie Recommendation App" 
+                             class="w-full h-full object-cover project-image"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/e0e0e0?text=Movie+Night';">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Netflix-GPT (Movie Recommendation)</h3>
+                        <p class="text-gray-300 mb-4 text-sm flex-grow">A movie recommendation site built with React and a custom Python ML model, delivering a Netflix-like user experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-fuchsia-500/20 text-fuchsia-300 text-xs font-semibold px-3 py-1 rounded-full">React</span>
+                            <span class="bg-fuchsia-500/20 text-fuchsia-300 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                             <span class="bg-fuchsia-500/20 text-fuchsia-300 text-xs font-semibold px-3 py-1 rounded-full">ML</span>
+                        </div>
+                        <div class="flex space-x-4 mt-auto">
+                            <a href="https://github.com/RahulChuriwal/Netflix-GPT" target="_blank" class="border border-gray-500 text-gray-300 font-semibold px-5 py-2 rounded-full hover:bg-gray-700 hover:border-gray-700 transition-colors text-sm w-full text-center">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="glass-effect rounded-2xl overflow-hidden group project-card flex flex-col">
+                    <a href="https://loanapprovalprediction-fappcuwn2p24fyaytjoddng.streamlit.app/" target="_blank" class="block overflow-hidden h-48 project-image-container">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" 
+                             alt="Loan Approval System" 
+                             class="w-full h-full object-cover project-image"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/e0e0e0?text=Finance';">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Loan Approval System</h3>
+                        <p class="text-gray-300 mb-4 text-sm flex-grow">A Machine Learning model to predict loan approval based on applicant data, built with Python and Scikit-learn.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-teal-500/20 text-teal-300 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-teal-500/20 text-teal-300 text-xs font-semibold px-3 py-1 rounded-full">Flask</span>
+                            <span class="bg-teal-500/20 text-teal-300 text-xs font-semibold px-3 py-1 rounded-full">Scikit-learn</span>
+                        </div>
+                        <div class="flex space-x-4 mt-auto">
+                            <a href="https://github.com/RahulChuriwal/Loan_approval_Prediction" target="_blank" class="border border-gray-500 text-gray-300 font-semibold px-5 py-2 rounded-full hover:bg-gray-700 hover:border-gray-700 transition-colors text-sm w-full text-center">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Contact Details</h3>
+                        <div class="space-y-4">
+                            <a href="mailto:rahulchuriwal7@gmail.com" class="flex items-center gap-4 group">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400 group-hover:text-fuchsia-400 transition-colors"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                <span class="text-gray-300 group-hover:text-white transition-colors">rahulchuriwal7@gmail.com</span>
+                            </a>
+                             <a href="mailto:22052659@kiit.ac.in" class="flex items-center gap-4 group">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400 group-hover:text-fuchsia-400 transition-colors"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                <span class="text-gray-300 group-hover:text-white transition-colors">22052659@kiit.ac.in</span>
+                            </a>
+                            <div class="flex items-center gap-4 group">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                <span class="text-gray-300">+91 9163885541</span>
+                            </div>
+                        </div>
+                    </div>
+                     <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Let's Connect</h3>
+                        <a href="https://www.linkedin.com/in/rahul-churiwal-a54980276" target="_blank" class="inline-block btn-gradient text-white font-bold px-8 py-3 rounded-full text-lg w-full text-center">
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div>
+                     <form id="contact-form" class="glass-effect p-8 rounded-2xl space-y-4">
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-gradient text-white font-bold px-6 py-3 rounded-full text-lg w-full">Send Email</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 Rahul Churiwal. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed with ❤️</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#4f46e5" },
+                "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 } },
+                "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } },
+                "line_linked": { "enable": true, "distance": 150, "color": "#818cf8", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
+            },
+            "retina_detect": true
+        });
+
+        // Typed.js Configuration
+        new Typed('#typed-text', {
+            strings: ['Software Developer', 'AI Enthusiast', 'Problem Solver', 'Backend Engineer'],
+            typeSpeed: 70,
+            backSpeed: 50,
+            loop: true,
+            smartBackspace: true,
+        });
+
+        // ScrollReveal Animations
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1500,
+            delay: 200,
+            reset: false, // Animations will NOT repeat on scroll up
+        });
+
+        // sr.reveal('.font-hero, h2, .text-lg, .flex'); // Removed animation from hero section
+        sr.reveal('#about .glass-effect', { origin: 'left' });
+        sr.reveal('.achievement-card', { interval: 150 });
+        sr.reveal('#experience .experience-card', { origin: 'left' });
+        sr.reveal('.skill-card', { interval: 100 });
+        sr.reveal('.project-card', { interval: 200 });
+        sr.reveal('#contact', { interval: 200 });
+
+        // Contact Form Handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const subject = encodeURIComponent(document.getElementById('subject').value);
+            const message = encodeURIComponent(document.getElementById('message').value);
+            const mailtoLink = `mailto:rahulchuriwal7@gmail.com?subject=${subject}&body=${message}`;
+            window.location.href = mailtoLink;
+        });
+
+    </script>
+
+</body>
+</html>

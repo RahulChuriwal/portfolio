@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Exo+2:wght@700;800&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0a1a;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+.font-hero {
+  font-family: 'Exo 2', sans-serif;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.glass-effect {
+  background: rgba(16, 16, 32, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-scrolled {
+  background-color: #0a0a1a; /* Solid background on scroll */
+  backdrop-filter: none; /* Remove blur on scroll */
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-gradient {
+  background-image: linear-gradient(to right, #4f46e5, #c026d3);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(192, 38, 211, 0.2);
+}
+
+.section-title {
+  background: linear-gradient(to right, #818cf8, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.2);
+}
+
+.profile-img:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
+.profile-img-container:hover .profile-img {
+  filter: grayscale(0%);
+}
+
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.25);
+  color: #c026d3; /* Match gradient color */
+}
+
+.project-card, .achievement-card, .experience-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover, .achievement-card:hover, .experience-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(129, 140, 248, 0.3); /* Match gradient color */
+}
+
+.project-image-container {
+  cursor: pointer;
+}
+
+.project-image {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Then add your custom styles */
