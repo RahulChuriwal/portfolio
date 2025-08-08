@@ -29,6 +29,7 @@ function Header() {
           <a href="#experience" className="hover:text-indigo-400 transition-colors duration-300">Experience</a>
           <a href="#skills" className="hover:text-indigo-400 transition-colors duration-300">Skills</a>
           <a href="#projects" className="hover:text-indigo-400 transition-colors duration-300">Projects</a>
+          <a href="#education" className="hover:text-indigo-400 transition-colors duration-300">Education</a>
           <a href="#contact" className="btn-gradient text-white font-semibold px-5 py-2 rounded-full">Contact Me</a>
         </nav>
         <button 
@@ -48,6 +49,7 @@ function Header() {
         <a href="#experience" className="block py-2 hover:text-indigo-400">Experience</a>
         <a href="#skills" className="block py-2 hover:text-indigo-400">Skills</a>
         <a href="#projects" className="block py-2 hover:text-indigo-400">Projects</a>
+        <a href="#education" className="hover:text-indigo-400 transition-colors duration-300">Education</a>
         <a href="#contact" className="block mt-2 text-center btn-gradient text-white font-semibold px-5 py-2 rounded-full">Contact Me</a>
       </div>
     </header>

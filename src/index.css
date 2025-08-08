@@ -30,8 +30,10 @@ body {
 }
 
 .header-scrolled {
-  background-color: #0a0a1a; /* Solid background on scroll */
-  backdrop-filter: none; /* Remove blur on scroll */
+  background-color: #0a0a1a;
+  /* Solid background on scroll */
+  backdrop-filter: none;
+  /* Remove blur on scroll */
   -webkit-backdrop-filter: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -72,16 +74,22 @@ body {
 
 .social-icon:hover {
   transform: scale(1.25);
-  color: #c026d3; /* Match gradient color */
+  color: #c026d3;
+  /* Match gradient color */
 }
 
-.project-card, .achievement-card, .experience-card {
+.project-card,
+.achievement-card,
+.experience-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card:hover, .achievement-card:hover, .experience-card:hover {
+.project-card:hover,
+.achievement-card:hover,
+.experience-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 30px rgba(129, 140, 248, 0.3); /* Match gradient color */
+  box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+  /* Match gradient color */
 }
 
 .project-image-container {
@@ -95,6 +103,11 @@ body {
 .project-card:hover .project-image {
   transform: scale(1.05);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 
 @tailwind base;

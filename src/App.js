@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Education from './components/Education';
 import './index.css';
 
 // Import react-tsparticles
@@ -50,6 +51,7 @@ function App() {
         <Experience />
         <Skills />
         <Projects />
+        <Education/>
         <Contact />
       </main>
       <Footer />
